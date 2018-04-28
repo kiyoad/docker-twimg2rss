@@ -1,6 +1,8 @@
 # -*- mode: gitignore; -*-
 
 twimg2rss/
+config.ini
+docker-compose.yml
 
 *~
 \#*\#
