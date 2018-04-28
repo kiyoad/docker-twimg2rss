@@ -9,7 +9,7 @@ pip3 install Jinja2 MarkupSafe oauthlib requests requests-oauthlib
 
 COPY twimg2rss/*.py /opt/
 COPY twimg2rss/twimg2rss.xml.j2 /opt/
-COPY crontab /etc/cron.d/twimg2rss
+COPY twimg2rss.crontab /etc/cron.d/twimg2rss
 RUN chmod 0644 /etc/cron.d/twimg2rss
 COPY twimg2rss.logrotate /etc/logrotate.d/twimg2rss
 
