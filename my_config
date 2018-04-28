@@ -1,0 +1,7 @@
+YOUR_DOMAIN="www.example.com"
+basedir="${HOME}/.twimg2rss"
+CONFIGDIR="${basedir}/conf"
+DBDIR="${basedir}/db"
+HTMLDIR="${basedir}/html"
+LOGDIR="${basedir}/log"
+TIMELINE="${basedir}/timeline"

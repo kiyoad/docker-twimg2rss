@@ -1,0 +1,16 @@
+version: "3"
+services:
+  twimg2rss:
+    image: kiyoad/twimg2rss:latest
+    volumes:
+      - "${HOME}:/home/${LOGNAME}"
+
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - twimg2rss
+    volumes:
+      - HTMLDIR:/usr/share/nginx/html:ro
+#      - CONFIGDIR/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 80:80
