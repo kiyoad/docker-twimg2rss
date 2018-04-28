@@ -1,11 +1,4 @@
-LOGDIR/cron.log {
-    daily
-    rotate 7
-    missingok
-    notifempty
-}
-
-LOGDIR/twimg2rss.log {
+LOGDIR/*log {
     daily
     rotate 7
     missingok

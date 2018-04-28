@@ -33,7 +33,3 @@ rm /etc/logrotate.d/apt /etc/logrotate.d/dpkg && \
 sed -i -e "s|LOGDIR|${LOGDIR}|" /etc/logrotate.d/twimg2rss
 
 ENTRYPOINT [ "/usr/sbin/cron", "-f" ]
-
-#USER ${INSTALL_USER}
-#ENTRYPOINT [ "/opt/twimg2rss.py" ]
-#ENTRYPOINT [ "/bin/bash" ]
