@@ -25,12 +25,12 @@ cp -p /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
 echo "Asia/Tokyo" > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata && \
 adduser --disabled-password --gecos "Developer" --uid "${UID}" "${INSTALL_USER}" && \
 chown -R "${INSTALL_USER}":"${INSTALL_USER}" "/home/${INSTALL_USER}" && \
-sed -i -e "s/INSTALL_USER/${INSTALL_USER}/g" -e "s|TIMELINE|${TIMELINE}|" /etc/cron.d/twimg2rss && \
+sed -i -e "s/INSTALL_USER/${INSTALL_USER}/" -e "s|TIMELINE|${TIMELINE}|" -e "s|LOGDIR|${LOGDIR}|" /etc/cron.d/twimg2rss && \
 sed -i -e "s|os\\.path\\.abspath(os\\.path\\.dirname(__file__))|\\'${CONFIGDIR}\\'|" /opt/common.py && \
 rm /etc/cron.daily/apt-compat /etc/cron.daily/dpkg /etc/cron.daily/passwd && \
 sed -i -e "s/^su root syslog/su root root/" /etc/logrotate.conf && \
 rm /etc/logrotate.d/apt /etc/logrotate.d/dpkg && \
-sed -i -e "s|^LOGDIR|${LOGDIR}|" /etc/logrotate.d/twimg2rss
+sed -i -e "s|LOGDIR|${LOGDIR}|" /etc/logrotate.d/twimg2rss
 
 ENTRYPOINT [ "/usr/sbin/cron", "-f" ]
 
