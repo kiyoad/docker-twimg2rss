@@ -11,7 +11,7 @@ set -euxo pipefail
 
 source my_config
 
-if [ ! -d twimg2rss ]; then
+if [[ ! -d twimg2rss ]]; then
    git clone https://github.com/kiyoad/twimg2rss.git
 fi
 
@@ -31,6 +31,16 @@ sed -e "s|YOUR_DOMAIN|${YOUR_DOMAIN}|" \
     -e "s|HTMLDIR|${HTMLDIR}|" \
     -e "s|LOGDIR|${LOGDIR}|" \
     -e "s|TIMELINE|${TIMELINE}|" twimg2rss.config.ini > config.ini
+
+mkdir -p "${CONFIGDIR}"
+mkdir -p "${DBDIR}"
+mkdir -p "${HTMLDIR}"
+mkdir -p "${LOGDIR}"
+mkdir -p "${TIMELINE}"
+if [[ ! -f "${CONFIGDIR}/config.ini" ]]; then
+   cp -p config.ini "${CONFIGDIR}"
+fi
+echo "Please modify: ${CONFIGDIR}/config.ini"
 
 EOF
 script -ec "bash ${tmpscript}" "build_${id}.log"
