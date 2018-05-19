@@ -69,7 +69,7 @@ OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
         * Confirm that you can access `http://YOUR_DOMAIN/twimg2rss.xml` with the browser.
         * Or, create an appropriate `index.html`, place it in `HTMLDIR`, and confirm that you can access it with the browser.
 * The log file is created in `LOGDIR`.
-    * Default `LOGDIR`: `${HOME}/.twimg2rss/logdir`
+    * Default `LOGDIR`: `${HOME}/.twimg2rss/log`
     * Access log of nginx etc can be referred to by `docker-compose logs -f`.
 
 
