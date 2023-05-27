@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 
 RUN DEBIAN_FRONTEND=noninteractive \
 apt-get update && \
@@ -27,7 +27,7 @@ adduser --disabled-password --gecos "Developer" --uid "${UID}" "${INSTALL_USER}"
 chown -R "${INSTALL_USER}":"${INSTALL_USER}" "/home/${INSTALL_USER}" && \
 sed -i -e "s/INSTALL_USER/${INSTALL_USER}/" -e "s|TIMELINE|${TIMELINE}|" -e "s|LOGDIR|${LOGDIR}|" /etc/cron.d/twimg2rss && \
 sed -i -e "s|os\\.path\\.abspath(os\\.path\\.dirname(__file__))|\\'${CONFIGDIR}\\'|" /opt/common.py && \
-rm /etc/cron.daily/apt-compat /etc/cron.daily/dpkg /etc/cron.daily/passwd && \
+rm /etc/cron.daily/apt-compat /etc/cron.daily/dpkg && \
 sed -i -e "s/^su root syslog/su root root/" /etc/logrotate.conf && \
 rm /etc/logrotate.d/apt /etc/logrotate.d/dpkg && \
 sed -i -e "s|LOGDIR|${LOGDIR}|" /etc/logrotate.d/twimg2rss
